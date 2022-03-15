@@ -1,0 +1,46 @@
+﻿@model AssocEqContViewModel
+
+<head>
+    <link rel="stylesheet" href="css/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="css/assets/css/templatemo-plot-listing.css">
+    <link rel="stylesheet" href="css/assets/css/animated.css">
+    <link rel="stylesheet" href="css/assets/css/owl.css">
+</head>
+
+<div class="page-header">
+    <h1>Product traceability Association detail</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-nowrap" scope="col">Date de l'association :</th>
+                        <th class="text-nowrap" scope="col">nom de l'équipement :</th>
+                        <th class="text-nowrap" scope="col">Type de controleur associé :</th>
+                        <th class="text-nowrap" scope="col">Serial du contrôleur :</th>
+                        <th class="text-nowrap" scope="col">Adresse danleur :</th>
+                        <th class="text-nowrap" scope="col">Ad :</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ foreach (var item in Model.listAssocEqCont)
+                        {
+                            <tr>
+                                <td>@item.DateAssoc</td>
+                                <td>@item.NomEquipement</td>
+                                <td>@item.LibelleType</td>
+                                <td>@item.Serial</td>
+                                <td>@item.AdresseDansArmoire</td>
+                                <td>@item.idAffaire</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

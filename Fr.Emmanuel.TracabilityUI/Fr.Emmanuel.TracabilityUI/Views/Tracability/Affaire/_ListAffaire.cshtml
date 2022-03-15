@@ -1,0 +1,40 @@
+﻿@model AffaireViewModel
+<div class="d-flex justify-content-center align-items-center flex-column">
+    <div id="bandeauList" class="d-flex justify-content-between align-items-center bg-info rounded" style="width:950px;padding: 2px;margin: 1px;font-size: 15px;">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm">
+                    <span class=" text-white">Numero Affaire</span>
+                </div>
+
+
+            </div>
+        </div>
+        <div style="width:92px;">
+
+        </div>
+    </div>
+    @{ foreach (var item in Model.numeroAffaire)
+                    {
+        <div class="d-flex justify-content-between align-items-center bg-dark rounded " style="width:950px;padding: 2px;margin: 1px;font-size: 15px;">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-sm">
+                        <span class=" text-white">@item.NumeroAffaire</span>
+                    </div>
+
+ 
+                </div>
+            </div>
+            <div class="d-flex">
+                <button id="@item.IdAffaire" class="mr-1 btn btn-success" onclick="EditAffaire(this.id)" data-toggle="modal" data-target="#modalEditAffaire" style="font-size:12px;">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button value="@item.IdAffaire" class="mr-1 btn btn-danger" onclick="DelAffaire(this.value)" data-toggle="modal" data-target="#modalDelAffaire">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div> } }
+</div>

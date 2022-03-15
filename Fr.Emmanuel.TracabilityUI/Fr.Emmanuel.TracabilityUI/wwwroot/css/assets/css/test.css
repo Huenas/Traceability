@@ -1,0 +1,121 @@
+a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+.vertical-tab {
+    font-family: 'Nunito', sans-serif;
+    display: table;
+}
+
+    .vertical-tab .nav-tabs {
+        display: table-cell;
+        width: 28%;
+        min-width: 28%;
+        vertical-align: top;
+        border: none;
+    }
+
+        .vertical-tab .nav-tabs li {
+            float: none;
+            vertical-align: top;
+        }
+
+            .vertical-tab .nav-tabs li a {
+                color: #999;
+                background: transparent;
+                font-size: 18px;
+                font-weight: 600;
+                font-style: italic;
+                letter-spacing: 1px;
+                text-align: center;
+                text-transform: uppercase;
+                padding: 13px 10px 12px;
+                margin: 0 0 10px 0;
+                border: none;
+                border-radius: 0;
+                display: block;
+                position: relative;
+                z-index: 1;
+                transition: all 0.3s ease 0s;
+            }
+
+            .vertical-tab .nav-tabs li:last-child a {
+                margin-bottom: 0;
+            }
+
+            .vertical-tab .nav-tabs li a:hover,
+            .vertical-tab .nav-tabs li.active a,
+            .vertical-tab .nav-tabs li.active a:hover {
+                color: #fff;
+                background: transparent;
+                border: none;
+                text-shadow: 0 0 5px rgba(0,0,0,0.3);
+            }
+
+            .vertical-tab .nav-tabs li a:before {
+                content: '';
+                background: linear-gradient(to right,transparent,transparent,#e7e7e7);
+                height: 100%;
+                width: 100%;
+                transform: perspective(500px) rotateY(-45deg);
+                transform-origin: right center;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: -1;
+                transition: all 0.3s ease;
+                clip-path: polygon(0 10%, 15% 15%, 10% 0, 100% 0, 100% 100%, 10% 100%, 15% 85%, 0 90%);
+            }
+
+            .vertical-tab .nav-tabs li a:hover:before,
+            .vertical-tab .nav-tabs li.active a:before,
+            .vertical-tab .nav-tabs li.active a:hover:before {
+                background: #999;
+                transform: perspective(500px) rotateY(0);
+            }
+
+    .vertical-tab .tab-content {
+        color: #333;
+        background: linear-gradient(to right,#e7e7e7,transparent);
+        font-size: 19px;
+        letter-spacing: 0.5px;
+        line-height: 28px;
+        padding: 20px 20px 10px;
+        margin-top: 10px;
+        border-left: 2px solid #999;
+        display: table-cell;
+        position: relative;
+    }
+
+        .vertical-tab .tab-content h3 {
+            color: #777;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 7px 0;
+        }
+
+@media only screen and (max-width: 479px) {
+    .vertical-tab .nav-tabs {
+        width: 100%;
+        display: block;
+        border: none;
+    }
+
+        .vertical-tab .nav-tabs li a {
+            margin: 0;
+        }
+
+    .vertical-tab .tab-content {
+        padding: 25px 20px;
+        margin-top: 0;
+        border-left: none;
+        border-top: 2px solid #999;
+        display: block;
+    }
+
+        .vertical-tab .tab-content h3 {
+            font-size: 18px;
+        }
+}

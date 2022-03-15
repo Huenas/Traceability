@@ -1,0 +1,42 @@
+﻿@model ParametrageViewModel
+
+    <head>
+        <link rel="stylesheet" href="css/assets/css/fontawesome.css">
+        <link rel="stylesheet" href="css/assets/css/templatemo-plot-listing.css">
+        <link rel="stylesheet" href="css/assets/css/animated.css">
+        <link rel="stylesheet" href="css/assets/css/owl.css">
+    </head>
+
+
+<div class="page-header">
+    <h1>Product traceability Parametrage detail</h1>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-nowrap" scope="col"> IdControleur  </th>
+                        <th class="text-nowrap" scope="col"> IdParametrage</th>
+                        <th class="text-nowrap" scope="col"> IDControleurNavigation</th>
+                        <th class="text-nowrap" scope="col"> Fichier</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ foreach (var item in Model.listParametrage)
+                        {
+                        <tr>
+                            <td>@item.IdControleur</td>  
+                            <td>@item.IdParametrage</td>
+                            <td>@item.IdControleurNavigation</td> 
+                            <td>@item.Fichier</td>                                                        
+                        </tr> 
+                            }
+                        }
+                </tbody>
+            </table>
+        </div>
+   </div>   
+</div>

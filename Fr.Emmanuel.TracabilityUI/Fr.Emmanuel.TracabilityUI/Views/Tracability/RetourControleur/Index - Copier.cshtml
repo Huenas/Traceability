@@ -1,0 +1,50 @@
+﻿@model RetourControleurViewModel
+
+<div class="modal-header">
+    <h4 class="col-10 modal-title">Ajout d'un retour contrôleur'</h4>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+
+
+<div class="modal-body" style="text-align:center">
+    <div>
+        <div class="row">
+            <div class="col-md d-flex flex-column align-items-center justify-content-center">
+
+                <label>Libellé du retour :</label>
+                <input name="libelle" value="" id="libelleRetour" />
+                <label>Date de retour :</label>
+                <input name="name" value="" id="dateRetour" />
+                <label>Controleur :</label>
+                <select id="IdControleur">
+                    @{
+                        foreach (var item in Model.listControleur)
+                        {
+
+                            <option value="@item.IdControleur">@item.Serial</option>
+                        }
+                    }
+                </select>
+                <label>P&L :</label>
+                <select id="IdPL">
+                    @{
+                        foreach (var item in Model.listTypeControleur)
+                        {
+                            <option value="@item.IdTypeControleur">@item.LibelleType</option>
+                        }
+                    }
+                </select>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal-footer">
+    <button id="btnCloseModal" type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+    <button id="btn_add_Compte" type="button" class="btn btn-success">Ajouter</button>
+</div>
+<script src="~/js/FinanceController.js"></script>
+
+

@@ -1,0 +1,336 @@
+﻿@model HomeViewModel
+
+
+
+<head>
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!--jquery-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!--bootstrap-->
+
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/Tracability.js"></script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/vendor/bootstrap/css/bootstrapo.min.css">
+
+
+
+
+    <script src="~/js/Tracability.js"></script>
+    <link rel="stylesheet" href="css/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="css/assets/css/templatemo-plot-listing.css">
+    <link rel="stylesheet" href="css/assets/css/animated.css">
+    <link rel="stylesheet" href="css/assets/css/owl.css">
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/assets/css/test.css">
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="coli-md-6">
+            <div class="vertical-tab" role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#Affaires" aria-controls="home" role="tab" data-toggle="tab">Affaires</a></li>
+                    <li role="presentation"><a href="#Associations" aria-controls="profile" role="tab" data-toggle="tab">Associations</a></li>
+                    <li role="presentation"><a href="#Controleurs" aria-controls="profile" role="tab" data-toggle="tab">Contrôleurs</a></li>
+                    <li role="presentation"><a href="#Equipements" aria-controls="profile" role="tab" data-toggle="tab">Equipements</a></li>
+                    <li role="presentation"><a href="#Parametrages" aria-controls="profile" role="tab" data-toggle="tab">Parametrage</a></li>
+                    <li role="presentation"><a href="#RetourControleurs" aria-controls="profile" role="tab" data-toggle="tab">Retour des contrôleurs</a></li>
+                    <li role="presentation"><a href="#RetourEquipements" aria-controls="profile" role="tab" data-toggle="tab">Retour d'équipements</a></li>
+                    <li role="presentation"><a href="#TypeControleurs" aria-controls="messages" role="tab" data-toggle="tab">Types de contrôleur</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content tabs">
+                    <div role="tabpanel" class="tab-pane fade in active" id="Affaires">
+                        <h3>Affaires :</h3>
+                        <div class="page-header">
+                            <h1>Product traceability Affaire detail</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="panel panel-default">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-nowrap" scope="col"> Id Affaire</th>
+                                                <th class="text-nowrap" scope="col">Libelle Retour</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ foreach (var item in Model.Affaire)
+                                                {
+                                                    <tr>
+                                                        <td>@item.NumeroAffaire</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="Associations">
+                        <h3>Assocations :</h3>
+                        <div class="page-header">
+                            <h1>Product traceability Association detail</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="panel panel-default">
+
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-nowrap" scope="col">Date de l'association :</th>
+                                                <th class="text-nowrap" scope="col">Nom de l'équipement</th>
+                                                <th class="text-nowrap" scope="col">Type de contrôleur associé :</th>
+                                                <th class="text-nowrap" scope="col">Serial du contrôleur :</th>
+                                                <th class="text-nowrap" scope="col">Adresse dans l'armoire :</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ foreach (var item in Model.AssocEqCont)
+                                                {
+                                                    <tr>
+                                                        <td>@item.DateAssoc</td>
+                                                        <td>@item.NomEquipement</td>
+                                                        <td>@item.LibelleType</td>
+                                                        <td>@item.Serial</td>
+                                                        <td>@item.AdresseDansArmoire</td>
+                                                        
+                                                        
+                                                    </tr>
+                                                }
+                                            }
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="Controleurs">
+                        <h3>Contrôleurs : </h3>
+                        <div class="page-header">
+                            <h1>Product traceability Controleur detail</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="panel panel-default">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-nowrap" scope="col"> Libelle Retour </th>
+                                                <th class="text-nowrap" scope="col"> Date retour</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ foreach (var item in Model.Controleur)
+                                                {
+                                                    <tr>
+                                                        <td>@item.LotProd</td>
+                                                        <td>@item.Serial</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                        <div role="tabpanel" class="tab-pane fade" id="Equipements">
+                            <h3>Equipements :</h3>
+                            <div class="page-header">
+                                <h1>Product traceability Equipement detail</h1>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="panel panel-default">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-nowrap" scope="col"> Nom du Controleur  </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{ foreach (var item in Model.Equipement)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.NomEquipement</td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="Parametrages">
+                            <h3>Parametrages :</h3>
+                            <div class="page-header">
+                                <h1>Product traceability Parametrage detail</h1>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="panel panel-default">
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-nowrap" scope="col"> IdControleur  </th>
+                                                    <th class="text-nowrap" scope="col"> IdParametrage</th>
+                                                    <th class="text-nowrap" scope="col"> IDControleurNavigation</th>
+                                                    <th class="text-nowrap" scope="col"> Fichier</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{ foreach (var item in Model.Parametrage)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.IdControleur</td>
+                                                            <td>@item.IdParametrage</td>
+                                                            <td>@item.IdControleurNavigation</td>
+                                                            <td>@item.Fichier</td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="RetourControleurs">
+                            <h3>Retours de contrôleurs :</h3>
+                            <div class="page-header">
+                                <h1>Product traceability Retour des controleurs detail</h1>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="panel panel-default">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-nowrap" scope="col"> Serial du contrôleur :  </th>
+                                                    <th class="text-nowrap" scope="col"> Lot de production :  </th>
+                                                    <th class="text-nowrap" scope="col"> Libelle Retour : </th>
+                                                    <th class="text-nowrap" scope="col"> Date de retour :</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{ foreach (var item in Model.RetourControleur)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.Serial</td>
+                                                            <td>@item.LotProd</td>
+                                                            <td>@item.LibelleRetour</td>
+                                                            <td>@item.DateRetour</td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="RetourEquipements">
+                            <h3>Retours d'équipements :</h3>
+                            <div class="page-header">
+                                <h1>Product traceability Retour des équipements detail</h1>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="panel panel-default">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-nowrap" scope="col"> nom de l'équipement :</th>
+                                                    <th class="text-nowrap" scope="col"> Libelle Retour de l'équipement : </th>
+                                                    <th class="text-nowrap" scope="col"> Date retour :</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{ foreach (var item in Model.RetourEquipement)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.nomEquipement</td>
+                                                            <td>@item.LibelleRetour</td>
+                                                            <td>@item.DateRetour</td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="TypeControleurs">
+                            <h3>Types de contrôleur :</h3>
+                            <div class="page-header">
+                                <h1>Product traceability Types of Controleurs detail</h1>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="panel panel-default">
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-nowrap" scope="col"> Id Type Controleurs  </th>
+                                                    <th class="text-nowrap" scope="col"> Tous les libelles</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{ foreach (var item in Model.TypeControleur)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.IdTypeControleur</td>
+                                                            <td>@item.LibelleType</td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/bootstrap/dist/css/vendor/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/js/owl-carousel.js"></script>
+    <script src="~/assets/js/animation.js"></script>
+    <script src="~/css/assets/js/imagesloaded.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

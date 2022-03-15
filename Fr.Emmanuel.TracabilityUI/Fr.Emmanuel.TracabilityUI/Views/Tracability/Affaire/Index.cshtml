@@ -1,0 +1,43 @@
+﻿@model AffaireViewModel
+
+    <head>
+        <link rel="stylesheet" href="css/assets/css/fontawesome.css">
+        <link rel="stylesheet" href="css/assets/css/templatemo-plot-listing.css">
+        <link rel="stylesheet" href="css/assets/css/animated.css">
+        <link rel="stylesheet" href="css/assets/css/owl.css">
+    </head>
+
+
+    <div class="page-header">
+        <h1>Product traceability Affaire detail</h1>
+    </div>
+   <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-nowrap" scope="col"><p> Id Affaire</p></th>
+                            <th class="text-nowrap" scope="col"><p> Libelle Retour</p></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ foreach (var item in Model.listAffaire)
+                            {
+                                <tr>
+                                    <td>@item.IdAffaire</td>
+                                    <td>@item.NumeroAffaire</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="css/assets/js/owl-carousel.js"></script>
+    <script src="css/assets/js/animation.js"></script>
+    <script src="css/assets/js/imagesloaded.js"></script>
+    <script src="css/assets/js/custom.js"></script>
